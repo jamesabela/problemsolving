@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21st Century Problem Solving - Code Companion</title>
+  <meta name="description" content="Access and run Python scripts from the book '21st Century Problem Solving - from zeros & ones to AI' directly in your browser using Python Code Lab.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+  <div class="app-container">
+    
+    <!-- Top Navigation / Header -->
+    <header class="app-header">
+      <div class="header-logo">
+        <div class="logo-icon">🐍</div>
+        <div class="logo-text">
+          <a href="index.html" style="text-decoration: none;">
+            <h1>21st Century Problem Solving</h1>
+          </a>
+          <span>From Zeros & Ones to AI &bull; Companion Hub</span>
+        </div>
+      </div>
+      <div class="header-actions" style="display: flex; gap: 10px; align-items: center;">
+        <a href="index.html" class="btn btn-secondary btn-sm">Home (The Book)</a>
+        <a href="#about-pythoncopy" class="btn btn-secondary btn-sm" id="btn-show-about">About Code Lab</a>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="app-workspace">
+      
+      <!-- Sidebar / Navigation / Filters -->
+      <aside class="sidebar">
+        <div class="sidebar-search">
+          <input type="text" id="search-input" placeholder="Search scripts or code..." autocomplete="off">
+          <span class="search-icon">🔍</span>
+        </div>
+        
+        <div class="filter-group">
+          <label for="chapter-select">Chapter</label>
+          <select id="chapter-select">
+            <option value="all">All Chapters</option>
+            <!-- Chapters will be populated dynamically -->
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Script Type</label>
+          <div class="type-pills">
+            <button class="pill active" data-type="all">All</button>
+            <button class="pill" data-type="example">Examples</button>
+            <button class="pill" data-type="challenge">Challenges</button>
+            <button class="pill" data-type="answer">Answers</button>
+          </div>
+        </div>
+
+        <div class="scripts-list-container">
+          <div class="list-header">
+            <span id="scripts-count">0 Scripts</span>
+          </div>
+          <ul class="scripts-list" id="scripts-list">
+            <!-- List items populated dynamically -->
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Code Viewer and Details -->
+      <section class="viewer-panel" id="viewer-panel">
+        <div class="empty-state" id="empty-state">
+          <div class="empty-icon">📂</div>
+          <h2>Select a script to get started</h2>
+          <p>Choose any script from the sidebar to view code and run it directly in Python Code Lab.</p>
+        </div>
+        
+        <div class="viewer-content hidden" id="viewer-content">
+          <div class="script-header">
+            <div class="script-meta-info">
+              <span class="badge" id="script-chapter-badge">Chapter 1</span>
+              <span class="badge" id="script-type-badge">Example</span>
+              <h2 id="script-title">Example Name</h2>
+              <span class="filename" id="script-filename">example.py</span>
+            </div>
+            
+            <div class="script-actions">
+              <button class="btn btn-secondary" id="btn-copy-code">Copy Code</button>
+              <a href="#" target="_blank" class="btn btn-primary" id="btn-run-codelab">
+                Run in Python Code Lab 🚀
+              </a>
+            </div>
+          </div>
+
+          <div class="script-description-box" id="script-description-container">
+            <h3>Description</h3>
+            <p id="script-description">Script description text...</p>
+          </div>
+
+          <div class="code-container">
+            <div class="code-header">
+              <span>Python Source</span>
+              <span class="copied-toast" id="copied-toast">Copied!</span>
+            </div>
+            <pre><code id="code-block" class="language-python"></code></pre>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- About / Guide Modal -->
+  <div class="modal-backdrop hidden" id="about-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>About Python Code Lab</h2>
+        <button class="btn-close" id="btn-close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>This companion website integrates with <strong>Python Code Lab (pythoncopy.html)</strong>, an in-browser Python runner powered by Pyodide.</p>
+        
+        <h3>Key Features of Python Code Lab:</h3>
+        <ul>
+          <li><strong>Zero Installation:</strong> Runs python scripts directly inside your browser.</li>
+          <li><strong>Step-by-Step Tracing:</strong> Visualise variables and execution line-by-line using Display Mode.</li>
+          <li><strong>Self-Checking Quizzes:</strong> Some challenges have built-in tests that automatically verify if your solution works.</li>
+          <li><strong>Browser-Safe:</strong> Includes support for basic libraries like <code>random</code>, <code>math</code>, <code>turtle</code> graphics, and more.</li>
+        </ul>
+
+        <h3>How it Works:</h3>
+        <p>When you click "Run in Python Code Lab", the website packs the script using Base64 encoding and appends it to the Code Lab URL. This enables the IDE to open with the script pre-loaded and ready to run immediately.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data and App scripts -->
+  <script src="scripts_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

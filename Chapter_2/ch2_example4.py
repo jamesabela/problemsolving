@@ -1,0 +1,5 @@
+​​hour = int(input("Enter the hour:"))  
+if hour == 0 : print("12")  
+elif hour < 13: print(hour)  
+elif hour < 24: print(hour-12)  
+else: print("12")

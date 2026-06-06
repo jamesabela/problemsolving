@@ -1,0 +1,3 @@
+\. How can you do multiplication by just adding numbers? Try some simple examples such as 2 * 4\. You can do this by adding 2 four times. (add 2 + 2 + 2 + 2).  This is how a computer does multiplication by very, very quickly.   
+\. Unplugged turtle - Give your friends instructions to draw simple shapes with a protractor and see what the shortest instructions are without naming the shape. (Perhaps use the instruction set above for turtle)   
+\. The robot vacuum cleaner - What instructions do you think a robotic vacuum cleaner has to clean your room?  (It uses the right-hand rule.  It keeps on turning right every time it is blocked until it finds nowhere new)

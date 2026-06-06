@@ -1,0 +1,3 @@
+. If you do not have enough space to do this with physical people as robots, then you can use a chessboard and use pieces as blocks to their final destination. I use the queen to find the king.  If students know the basics of chess, then you might consider a different piece such as Castle and get them to their destination following those rules.  
+. Using a maze is always fun for this kind of activity and students then draw exactly as they are told to solve the maze or move a small character.   
+. Hide small objects around the classroom and again the robot has to follow instructions to find the object.
