@@ -64,21 +64,17 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;");
 
-    // Keywords
-    const keywords = /\b(def|class|return|if|else|elif|for|while|try|except|import|from|as|in|is|not|and|or|print|input|with|pass|lambda|True|False|None)\b/g;
-    esc = esc.replace(keywords, '<span class="token-keyword">$1</span>');
+    // Combined regex for comments, strings, keywords, and numbers
+    const tokenRegex = /(#.*)|("(?:\\"|[^"])*")|('(?:\\'|[^'])*')|\b(def|class|return|if|else|elif|for|while|try|except|import|from|as|in|is|not|and|or|print|input|with|pass|lambda|True|False|None)\b|\b(\d+)\b/g;
 
-    // Comments
-    esc = esc.replace(/(#.*)/g, '<span class="token-comment">$1</span>');
-
-    // Strings (double and single quote)
-    esc = esc.replace(/("(?:\\"|[^"])*")/g, '<span class="token-string">$1</span>');
-    esc = esc.replace(/('(?:\\'|[^'])*')/g, '<span class="token-string">$1</span>');
-
-    // Numbers
-    esc = esc.replace(/\b(\d+)\b/g, '<span class="token-number">$1</span>');
-
-    return esc;
+    return esc.replace(tokenRegex, (match, comment, dstr, sstr, keyword, number) => {
+      if (comment !== undefined) return `<span class="token-comment">${comment}</span>`;
+      if (dstr !== undefined) return `<span class="token-string">${dstr}</span>`;
+      if (sstr !== undefined) return `<span class="token-string">${sstr}</span>`;
+      if (keyword !== undefined) return `<span class="token-keyword">${keyword}</span>`;
+      if (number !== undefined) return `<span class="token-number">${number}</span>`;
+      return match;
+    });
   }
 
   // Style Injection for highlighting tokens
